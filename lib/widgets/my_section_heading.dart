@@ -45,13 +45,10 @@ class MySectionHeading extends StatelessWidget {
                   Text(
                     buttonTitle,
                     style: TextStyle(color: titleColor),
-                  ),
-                  IconButton(
-                    onPressed: onPressed,
-                    icon: const Icon(
+                  ), 
+                  const Icon(
                       Iconsax.arrow_right_14,color: MyColors.warning,),
                       //style: ButtonStyle(iconColor: titleColor),
-                        ),
                 ],
               ),
             ),

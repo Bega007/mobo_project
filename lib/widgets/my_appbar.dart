@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_sizes.dart';
+import 'package:mobo_project/utils/device/my_device_utility.dart';
 import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
@@ -34,12 +36,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             : leadingIcon != null
                 ? IconButton(onPressed: () {}, icon: const Icon(Iconsax.share))
                 : null,
-                title: title,
-                actions: actions,
+        title: title,
+        actions: actions,
       ),
     );
   }
-
+  
   @override
-  Size get preferredSize => throw UnimplementedError();
+  Size get preferredSize => Size.fromHeight(MyDeviceUtility.getAppBarHeight());
 }

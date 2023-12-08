@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_sizes.dart';
-import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
 import 'package:mobo_project/widgets/my_bottom_add_to_bag.dart';
-import 'package:mobo_project/widgets/my_price_and_pieces_button.dart';
+import 'package:mobo_project/widgets/my_pieces_button.dart';
 import 'package:mobo_project/widgets/my_product_image.dart';
 import 'package:mobo_project/widgets/my_ratings_and_avatar.dart';
 import 'package:mobo_project/widgets/my_section_heading.dart';
 import 'package:mobo_project/widgets/my_similiar_products.dart';
 import 'package:mobo_project/widgets/my_tab_bar_view.dart';
 
+// ignore: must_be_immutable
 class MyProductDetailScreen extends StatelessWidget {
   MyProductDetailScreen({super.key});
 
@@ -17,7 +17,7 @@ class MyProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = MyHelperFunctions.isDarkMode(context);
+    //final dark = MyHelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: const MyBottomAddToBag(),
       body: SingleChildScrollView(
@@ -31,7 +31,6 @@ class MyProductDetailScreen extends StatelessWidget {
                   bottom: MySizes.defaultSpace),
               child: Column(
                 children: [
-
                   // Product Name
                   const MySectionHeading(
                     title: 'Designed Chair',
@@ -39,8 +38,14 @@ class MyProductDetailScreen extends StatelessWidget {
                     textColor: MyColors.textSecondary,
                   ),
 
-                  // Price and Pieces Button
-                  const MyPriceAndPiecesButton(),
+                  // Price
+                  const MySectionHeading(
+                    title: '\$250',
+                    showActionButton: false,
+                    textColor: MyColors.warning,
+                  ),
+                  // Pieces Button
+                  const MyPiecesButton(),
 
                   const SizedBox(
                     height: MySizes.spaceBtwItems,
@@ -48,16 +53,20 @@ class MyProductDetailScreen extends StatelessWidget {
 
                   //Rating and circle avatar
                   MyRatingsAndAvatar(gottenStars: gottenStars),
-                  
-                  
+
                   const SizedBox(
                     height: 12,
                   ),
-                 
+
                   // Description review etc
                   const MyTabBarView(),
 
                   const Divider(),
+
+                  const MySectionHeading(
+                    title: 'Similar products',
+                    showActionButton: false,
+                  ),
 
                   const MySimilarProducts(),
                 ],
@@ -69,4 +78,3 @@ class MyProductDetailScreen extends StatelessWidget {
     );
   }
 }
-

@@ -20,7 +20,7 @@ class MyLargeTextIcon extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(
         left: 20,
-        top: 90,
+        top: 55,
         right: 20,
       ),
       child: Row(

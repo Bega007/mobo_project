@@ -3,10 +3,10 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_sizes.dart';
 import 'package:mobo_project/widgets/my_rounded_icon.dart';
-import 'package:mobo_project/widgets/my_section_heading.dart';
 
-class MyPriceAndPiecesButton extends StatelessWidget {
-  const MyPriceAndPiecesButton({
+class MyPiecesButton extends StatelessWidget {
+  
+  const MyPiecesButton({
     super.key,
   });
 
@@ -14,12 +14,6 @@ class MyPriceAndPiecesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        MySectionHeading(
-          title: '\$250',
-          showActionButton: false,
-          textColor: MyColors.warning,
-        ),
-        SizedBox(width: 155),
         MyRoundedIcon(
           borderColor: MyColors.warning,
           icon: Iconsax.minus,
@@ -48,4 +42,3 @@ class MyPriceAndPiecesButton extends StatelessWidget {
     );
   }
 }
-

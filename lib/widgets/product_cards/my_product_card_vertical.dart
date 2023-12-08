@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobo_project/screens/my_product_detail_screen.dart';
+import 'package:mobo_project/screens/my_bag_screen.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_image_string.dart';
 import 'package:mobo_project/utils/constants/my_shadow_style.dart';
@@ -21,7 +21,7 @@ class MyProductCardVertical extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) =>  MyProductDetailScreen()));
+            builder: (BuildContext context) =>  const MyBagScreen()));
       },
       child: Container(
         width: 210,
