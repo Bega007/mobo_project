@@ -6,11 +6,12 @@ class MyGridView extends StatelessWidget {
   final double? mainAxisExtent;
   final Widget? Function(BuildContext, int) itemBuilder;
 
-  const MyGridView(
-      {super.key,
-      required this.itemCount,
-      this.mainAxisExtent,
-      required this.itemBuilder});
+  const MyGridView({
+    super.key,
+    required this.itemCount,
+    required this.itemBuilder,
+    this.mainAxisExtent = 288,
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,11 @@ class MyGridView extends StatelessWidget {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        mainAxisExtent: mainAxisExtent,
         mainAxisSpacing: MySizes.gridViewSpacing,
         crossAxisSpacing: MySizes.gridViewSpacing,
-        mainAxisExtent: 288,
       ),
       itemBuilder: itemBuilder,
     );

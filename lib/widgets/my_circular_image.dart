@@ -18,9 +18,9 @@ class MyCircularImage extends StatelessWidget {
     this.isNetworkImage = false,
     this.overlayColor,
     this.backgroundColor,
-    this.width = 56,
-    this.height = 56,
-    this.padding = MySizes.sm,
+    this.width = 60,
+    this.height = 60,
+    this.padding = MySizes.xs,
   });
 
   @override
@@ -38,10 +38,11 @@ class MyCircularImage extends StatelessWidget {
       ),
       child: Center(
         child: Image(
+          fit: fit,
           image: isNetworkImage
               ? NetworkImage(image)
               : AssetImage(image) as ImageProvider,
-          color: overlayColor,
+          //color: overlayColor,
         ),
       ),
     );

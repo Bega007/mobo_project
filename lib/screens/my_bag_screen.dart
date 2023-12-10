@@ -9,6 +9,7 @@ import 'package:mobo_project/widgets/my_coupon_code.dart';
 import 'package:mobo_project/widgets/my_pieces_button.dart';
 import 'package:mobo_project/widgets/my_rounded_image.dart';
 import 'package:mobo_project/widgets/my_section_heading.dart';
+import 'package:mobo_project/widgets/my_similiar_products.dart';
 
 class MyBagScreen extends StatelessWidget {
   const MyBagScreen({super.key});
@@ -51,7 +52,7 @@ class MyBagScreen extends StatelessWidget {
                           width: MySizes.spaceBtwItems,
                         ),
 
-                        //Title,Price, etc
+                        //Title
                         const Expanded(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -65,6 +66,7 @@ class MyBagScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        //price
                         const MySectionHeading(
                           title: '\$250',
                           showActionButton: false,
@@ -72,13 +74,22 @@ class MyBagScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: MySizes.spaceBtwItems,
-                    ),
                   ],
                 ),
               ),
+              const SizedBox(
+                height: MySizes.spaceBtwItems,
+              ),
               MyCouponCode(dark: dark),
+
+              const SizedBox(
+                height: MySizes.spaceBtwItems,
+              ),
+              const MySectionHeading(
+                title: 'Similar products',
+                showActionButton: false,
+              ),
+              const MySimilarProducts(),
             ],
           ),
         ),
@@ -86,5 +97,3 @@ class MyBagScreen extends StatelessWidget {
     );
   }
 }
-
-

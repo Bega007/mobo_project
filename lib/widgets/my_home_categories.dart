@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_image_string.dart';
+import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
 import 'package:mobo_project/widgets/my_vertical_image_text.dart';
 
 class MyHomeCategories extends StatelessWidget {
@@ -9,6 +11,7 @@ class MyHomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = MyHelperFunctions.isDarkMode(context);
     return SizedBox(
       height: 100,
       child: ListView.builder(
@@ -21,6 +24,9 @@ class MyHomeCategories extends StatelessWidget {
               child: MyVerticalImageText(
                 image: MyImages.chair,
                 title: 'Chair',
+                textColor: dark
+                    ? MyColors.white
+                    : MyColors.black,
                 onTap: () {},
               ),
             );

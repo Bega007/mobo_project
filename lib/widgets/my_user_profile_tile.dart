@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobo_project/screens/my_profile_editing.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_image_string.dart';
 import 'package:mobo_project/widgets/my_circular_image.dart';
@@ -33,7 +34,13 @@ class MyUserProfileTile extends StatelessWidget {
             .apply(color: MyColors.white),
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyProfileEditingScreen()),
+                          );
+                        },
         icon: const Icon(
           Iconsax.edit,
           color: MyColors.white,

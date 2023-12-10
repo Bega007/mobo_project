@@ -34,4 +34,10 @@ class MyImages {
   static const String avatar1 = 'lib/assets/avatars/avatar1.png';
   static const String avatar2 = 'lib/assets/avatars/avatar2.png';
   static const String avatar3 = 'lib/assets/avatars/avatar3.png';
+
+   // Markets
+  static const String bellona = 'lib/assets/markets/bellona.jpeg';
+  static const String dogtas = 'lib/assets/markets/dogtas.jpeg';
+  static const String idas = 'lib/assets/markets/idas.jpeg';
+  static const String ikea = 'lib/assets/markets/ikea.jpeg';
 }

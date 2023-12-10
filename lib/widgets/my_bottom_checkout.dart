@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobo_project/utils/constants/my_colors.dart';
 import 'package:mobo_project/utils/constants/my_sizes.dart';
 import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
+import 'package:mobo_project/widgets/my_section_heading.dart';
 
 class MyBottomCheckOut extends StatelessWidget {
   const MyBottomCheckOut({super.key});
@@ -23,8 +24,11 @@ class MyBottomCheckOut extends StatelessWidget {
         children: [
           const Stack(
             children: [
-              Text('total'),
-              Text('\$ 250'),
+              MySectionHeading(
+                          title: '\$250',
+                          showActionButton: false,
+                          textColor: MyColors.warning,
+                        ),
             ],
           ),
           SizedBox(

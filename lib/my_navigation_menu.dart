@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobo_project/screens/my_cart_screen.dart';
-import 'package:mobo_project/screens/my_chat_screen.dart';
+import 'package:mobo_project/screens/my_all_markets_screen.dart';
 import 'package:mobo_project/screens/my_home_screen.dart';
 import 'package:mobo_project/screens/my_profile_screen.dart';
 import 'package:mobo_project/screens/my_wishlist_screen.dart';
@@ -42,9 +41,8 @@ class _MyNavigationMenuState extends State<MyNavigationMenu> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(icon: Icon(Iconsax.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Iconsax.message), label: 'Chat'),
-            BottomNavigationBarItem(
-                icon: Icon(Iconsax.shopping_bag), label: 'Cart'),
+            BottomNavigationBarItem(icon: Icon(Iconsax.shop), label: 'Markets'),
+            //BottomNavigationBarItem(icon: Icon(Iconsax.shopping_bag), label: 'Cart'),
             BottomNavigationBarItem(
                 icon: Icon(Iconsax.heart), label: 'WishList'),
             BottomNavigationBarItem(icon: Icon(Iconsax.user), label: 'Profile'),
@@ -56,8 +54,8 @@ class _MyNavigationMenuState extends State<MyNavigationMenu> {
 
 final List<Widget> _screens = [
   const MyHomeScreen(),
-  const MyChatScreen(),
-  const MyCartScreen(),
+  const MyAllMarketsScreen(),
+  //const MyCartScreen(),
   const MyWishlistScreen(),
   const MyProfileScreen(),
 ];
