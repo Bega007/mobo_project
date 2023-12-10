@@ -36,6 +36,7 @@ flutter:
     - lib/assets/banners/
     - lib/assets/Rooms/
     - lib/assets/avatars/
+    - lib/assets/markets/
     
   fonts: 
     - family: Poppins
