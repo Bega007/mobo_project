@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobo_project/utils/constants/my_image_string.dart';
 import 'package:mobo_project/utils/constants/my_sizes.dart';
+import 'package:mobo_project/widgets/change_profiles/my_change_name.dart';
 import 'package:mobo_project/widgets/my_appbar.dart';
 import 'package:mobo_project/widgets/my_circular_image.dart';
 import 'package:mobo_project/widgets/my_profile_menu.dart';
@@ -52,7 +53,9 @@ class MyProfileEditingScreen extends StatelessWidget {
               ),
         
               MyProfileMenu(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyChangeName()));
+                },
                 title: 'Name',
                 value: 'Plany Planyyev',
               ),
