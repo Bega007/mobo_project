@@ -11,6 +11,7 @@ class MyMarketProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: MyAppBar(
+        showBackArrow: true,
         title: Text('Ikea'),
       ),
       body: SingleChildScrollView(

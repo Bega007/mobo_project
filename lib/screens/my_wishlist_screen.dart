@@ -11,7 +11,8 @@ class MyWishlistScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        showBackArrow: true,
+        showBackArrow: false,
+        title: Text('Whishlist'),
       ),
       body: SingleChildScrollView(
         child: Padding(

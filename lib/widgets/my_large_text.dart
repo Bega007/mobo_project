@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobo_project/screens/my_bag_screen.dart';
 
 class MyLargeTextIcon extends StatelessWidget {
   final double size;
@@ -11,7 +12,7 @@ class MyLargeTextIcon extends StatelessWidget {
     super.key,
     required this.text,
     this.colors = Colors.orange,
-    this.icon = Iconsax.notification5,
+    this.icon = Iconsax.shopping_bag,
     this.size = 25,
   });
 
@@ -38,10 +39,15 @@ class MyLargeTextIcon extends StatelessWidget {
               ),
             ),
           ),
-          Icon(
-            icon,
-            color: colors,
-            size: 30,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context)=> const MyBagScreen(),),);
+            },
+            child: Icon(
+              icon,
+              color: colors,
+              size: 30,
+            ),
           ),
         ],
       ),

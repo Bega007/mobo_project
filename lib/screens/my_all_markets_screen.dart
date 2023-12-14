@@ -4,7 +4,6 @@ import 'package:mobo_project/widgets/my_appbar.dart';
 import 'package:mobo_project/widgets/my_grid_view.dart';
 import 'package:mobo_project/widgets/my_market_card.dart';
 import 'package:mobo_project/widgets/my_market_products.dart';
-import 'package:mobo_project/widgets/my_section_heading.dart';
 
 class MyAllMarketsScreen extends StatelessWidget {
   const MyAllMarketsScreen({super.key});
@@ -13,7 +12,8 @@ class MyAllMarketsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        showBackArrow: true,
+        showBackArrow: false,
+        title: Text('Markets'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -21,10 +21,7 @@ class MyAllMarketsScreen extends StatelessWidget {
           child: Column(
             children: [
               // Heading
-              const MySectionHeading(
-                title: 'Markets',
-                showActionButton: false,
-              ),
+              //const MySectionHeading( title: 'Markets',showActionButton: false,),
 
               const SizedBox(
                 height: MySizes.spaceBtwItems,

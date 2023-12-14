@@ -15,6 +15,7 @@ import 'package:mobo_project/widgets/my_profile_menu.dart';
 import 'package:mobo_project/widgets/my_section_heading.dart';
 
 class MyProfileEditingScreen extends StatefulWidget {
+  
   const MyProfileEditingScreen({super.key});
 
   @override
@@ -23,6 +24,8 @@ class MyProfileEditingScreen extends StatefulWidget {
 
 class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
   late DateTime dateTime;
+  final items = ['Male', 'Female'];
+  int index = 0;
 
   @override
   void initState() {
@@ -138,10 +141,38 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
               ),
               MyProfileMenu(
                 onPressed: () {
+                  showCupertinoModalPopup(
+                      context: context,
+                      builder: (context) {
+                        return Container(
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          color: MyHelperFunctions.isDarkMode(context)
+                              ? MyColors.black
+                              : MyColors.white,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Done'),
+                              ),
+                              Expanded(
+                                child: CupertinoPicker(
+                                   itemExtent: 64, 
+                                   onSelectedItemChanged: (index) { setState(()=> this.index = index);},
+                                   children: items.map((item) => Center(child: Text(item),)).toList(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      });
                 },
                 title: 'Gender',
-                value: 'Male',
-              ),
+                value: items[index],
+                  ),
               MyProfileMenu(
                 onPressed: () {
                   showCupertinoModalPopup(

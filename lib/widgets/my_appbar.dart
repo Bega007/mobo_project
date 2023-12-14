@@ -5,8 +5,7 @@ import 'package:mobo_project/utils/constants/my_sizes.dart';
 import 'package:mobo_project/utils/device/my_device_utility.dart';
 import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
 
- class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
@@ -30,7 +29,9 @@ import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 icon: Icon(Iconsax.arrow_left,
                     color: dark ? MyColors.white : MyColors.dark))
             : leadingIcon != null
@@ -41,7 +42,7 @@ import 'package:mobo_project/utils/helpers/my_helper_functions.dart';
       ),
     );
   }
-  
+
   @override
   Size get preferredSize => Size.fromHeight(MyDeviceUtility.getAppBarHeight());
 }

@@ -20,6 +20,7 @@ class MyBagScreen extends StatelessWidget {
     return Scaffold(
       appBar: const MyAppBar(
         showBackArrow: true,
+        title: Text('Shopping Bag'),
       ),
       bottomNavigationBar: const MyBottomCheckOut(),
       body: SingleChildScrollView(
