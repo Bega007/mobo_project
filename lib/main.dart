@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobo_project/my_navigation_menu.dart';
-import 'package:mobo_project/utils/theme/my_theme.dart';
+import 'package:mobo_project/data/utils/theme/my_theme.dart';
 
 void main() {
 

@@ -22,8 +22,12 @@ dependencies:
   shimmer: ^3.0.0
   image_picker: ^1.0.4
   cached_network_image: ^3.3.0
+  flutter_launcher_icons: ^0.13.1
 
-   
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: 'lib/assets/images/Mobo.png' 
 
 dev_dependencies:
   flutter_test:
