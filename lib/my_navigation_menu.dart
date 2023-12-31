@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobo_project/presentation/screens/my_all_markets_screen.dart';
-import 'package:mobo_project/presentation/screens/my_home_screen.dart';
-import 'package:mobo_project/presentation/screens/my_profile_screen.dart';
-import 'package:mobo_project/presentation/screens/my_wishlist_screen.dart';
-import 'package:mobo_project/data/utils/helpers/my_helper_functions.dart';
+import 'package:mobo_project/features/presentation/screens/my_all_markets_screen.dart';
+import 'package:mobo_project/features/presentation/screens/my_home_screen.dart';
+import 'package:mobo_project/features/presentation/screens/my_profile_screen.dart';
+import 'package:mobo_project/features/presentation/screens/my_wishlist_screen.dart';
+import 'package:mobo_project/core/utils/helpers/my_helper_functions.dart';
 
 class MyNavigationMenu extends StatefulWidget {
   const MyNavigationMenu({super.key});

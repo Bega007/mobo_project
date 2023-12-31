@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobo_project/my_navigation_menu.dart';
-import 'package:mobo_project/data/utils/theme/my_theme.dart';
+import 'package:mobo_project/features/presentation/screens/login/my_login_screen.dart';
+import 'package:mobo_project/config/theme/my_theme.dart';
 
 void main() {
 
@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
-      home: const MyNavigationMenu(),
+      home: const MyLoginScreen(),
     );
   }
 }
