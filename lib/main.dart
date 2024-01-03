@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobo_project/features/presentation/screens/login/my_login_screen.dart';
-import 'package:mobo_project/config/theme/my_theme.dart';
+import 'package:mobo_project/screens/login/my_login_screen.dart';
+import 'package:mobo_project/utils/theme/my_theme.dart';
 
 void main() {
 
@@ -20,7 +20,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
       home: const MyLoginScreen(),
