@@ -11,7 +11,7 @@ extension Endpoints on Never {
   static const hostProductsV1 = '/api/products';
   static const hostRegister = '/api/v1/register/';
   static const validateEmail = '/api/v1/validate_email';
-  static const signUp = '/api/v1/signup';
+  static const signUp = '/api/v1/register/';
   static const login = '/api/v1/login';
   static const getAllProducts = '/api/products';
 }
@@ -35,4 +35,28 @@ class ApiClient {
       mapper: (dynamic data) => LoginResponse.fromJson(data as Map<String, dynamic>),
     );
   }
+
+   Future<UserRegistrationResponse> signUp( {
+
+    required String? firstName,
+    required String? lastName,
+    required String? username,
+    required String? password,
+    required String? email,
+  }) async {
+    final postData = <String, dynamic>{
+
+      'first_name': firstName,
+      'last_name': lastName,
+      'username': username,
+      'password': password,
+      'email': email,
+    };
+    return _httpClient.post(
+      Endpoints.signUp,
+      body: postData,
+      mapper: (dynamic data) => UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
+    );
+  }
 }
+

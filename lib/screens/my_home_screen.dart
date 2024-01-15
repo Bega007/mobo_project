@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobo_project/screens/product_cards/my_product_card_vertical.dart';
-import 'package:mobo_project/screens/product_cards/my_product_title_text.dart';
-
 import '../components/my_grid_view.dart';
 import '../components/my_home_categories.dart';
 import '../components/my_large_text.dart';
@@ -11,6 +8,8 @@ import '../components/my_search_bar.dart';
 import '../components/my_section_heading.dart';
 import '../utils/constants/my_image_string.dart';
 import '../utils/constants/my_sizes.dart';
+import 'product_cards/my_product_card_vertical.dart';
+import 'product_cards/my_product_title_text.dart';
 
 class MyHomeScreen extends StatelessWidget {
   const MyHomeScreen({super.key});
@@ -23,8 +22,7 @@ class MyHomeScreen extends StatelessWidget {
           children: [
             // Banner
             const MyLargeTextIcon(
-              //TODO: change to correct way...
-              text: 'Explore What                      Your Home Needs',
+              text: 'Explore What \nYour Home Needs',
             ),
 
             const SizedBox(height: MySizes.spaceBtwSections),

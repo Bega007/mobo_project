@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobo_project/screens/sign_up/widgets/my_signup_form.dart';
 
 import '../../components/my_appbar.dart';
 import '../../components/my_form_divider.dart';
 import '../../components/my_social_buttons.dart';
 import '../../utils/constants/my_sizes.dart';
 import '../../utils/texts/my_texts.dart';
+import 'widgets/my_signup_form.dart';
 
 class MySignupScreen extends StatelessWidget {
   const MySignupScreen({super.key});
@@ -30,7 +30,7 @@ class MySignupScreen extends StatelessWidget {
               const SizedBox(height: MySizes.spaceBtwSections),
 
               // Form
-              const MySignupForm(),
+               const MySignupForm(),
 
               const SizedBox(height: MySizes.spaceBtwSections),
 
