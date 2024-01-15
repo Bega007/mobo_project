@@ -21,7 +21,7 @@ class MyLoginForm extends StatefulWidget {
 }
 
 class _MyLoginFormState extends State<MyLoginForm> {
-  GlobalKey<State<StatefulWidget>> formKey = GlobalKey();
+  GlobalKey formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -39,6 +39,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
       //authController.onSignedIn(response);
 
       if (mounted) {
+        log('success');
         await Navigator.push<Widget>(
           context,
           MaterialPageRoute(
@@ -46,8 +47,9 @@ class _MyLoginFormState extends State<MyLoginForm> {
           ),
         );
       }
-    } catch (e) {
+    } catch (e, s) {
       log(e.toString());
+      log(s.toString());
     }
   }
 
@@ -112,9 +114,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){
-                  onLoginButtonTap();
-                },
+                onPressed: onLoginButtonTap,
                 child: const Text(MyTexts.signIn),
               ),
             ),

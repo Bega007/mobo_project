@@ -160,9 +160,7 @@ class _MySignupFormState extends State<MySignupForm> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                onRegistrationButtonTap();
-              },
+              onPressed: onRegistrationButtonTap,
               child: const Text(MyTexts.createAccount),
             ),
           ),

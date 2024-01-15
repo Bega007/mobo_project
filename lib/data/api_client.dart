@@ -12,7 +12,7 @@ extension Endpoints on Never {
   static const hostRegister = '/api/v1/register/';
   static const validateEmail = '/api/v1/validate_email';
   static const signUp = '/api/v1/register/';
-  static const login = '/api/v1/login';
+  static const login = '/api/v1/auth/';
   static const getAllProducts = '/api/products';
 }
 

@@ -4,11 +4,11 @@ part 'response.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
-  final String username;
+  // final String username;
   final String token;
 
   LoginResponse({
-    required this.username,
+    // required this.username,
     required this.token,
   });
 

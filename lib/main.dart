@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'data/sevices/preferences.dart';
 import 'my_providers.dart';
 import 'screens/login/my_login_screen.dart';
@@ -18,7 +19,12 @@ void main() async {
 
   final assembledContainer = riverpodRootContainer;
 
-  runApp(ProviderScope(parent: assembledContainer, child: const MainApp()));
+  runApp(
+    ProviderScope(
+      parent: assembledContainer,
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {

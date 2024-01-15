@@ -7,11 +7,11 @@ import 'response.dart';
 import 'sevices/preferences.dart';
 
 class LoggedInUser {
-  final String username;
+  // final String username;
   final String accessToken;
 
   LoggedInUser({
-    required this.username,
+    // required this.username,
     required this.accessToken,
   });
 
@@ -20,21 +20,21 @@ class LoggedInUser {
     String? accessToken,
   }) {
     return LoggedInUser(
-      username: username ?? this.username,
+      // username: username ?? this.username,
       accessToken: accessToken ?? this.accessToken,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'username': username,
+      // 'username': username,
       'access_token': accessToken,
     };
   }
 
   factory LoggedInUser.fromMap(Map<String, dynamic> map) {
     return LoggedInUser(
-      username: map['username'] as String,
+      // username: map['username'] as String,
       accessToken: map['access_token'] as String,
     );
   }
@@ -75,7 +75,7 @@ class AuthController extends StateNotifier<LoggedInUser?> {
 
   void onSignedIn(LoginResponse response) {
     final newState = LoggedInUser(
-      username: response.username,
+      // username: response.username,
       accessToken: response.token,
     );
     state = newState;

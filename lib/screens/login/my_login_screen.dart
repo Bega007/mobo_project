@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../components/my_form_divider.dart';
 import '../../components/my_social_buttons.dart';
 import '../../utils/constants/my_sizes.dart';
@@ -27,9 +28,7 @@ class MyLoginScreen extends StatelessWidget {
               // Divider
               MyFormDivider(dividerText: MyTexts.orSignInWith),
 
-              SizedBox(
-                height: MySizes.spaceBtwItems,
-              ),
+              SizedBox(height: MySizes.spaceBtwItems),
 
               // Footer
               MySocialButtons(),
