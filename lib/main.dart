@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mobo_project/features/presentation/screens/login/my_login_screen.dart';
-import 'package:mobo_project/config/theme/my_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobo_project/data/sevices/shared_preferences.dart';
+import 'package:mobo_project/my_providers.dart';
+import 'package:mobo_project/screens/login/my_login_screen.dart';
+import 'package:mobo_project/utils/theme/my_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // Todo: Add Widgets Binding
-  // Todo: Init Local Storage
-  // Todo: Await Native Splash
-  // Todo: Initialize Firebase or Backend
-  // Todo: Initialize Authentication
+  final sharedPrefs = await SharedPreferences.getInstance();
+  final riverpodRootContainer = ProviderContainer(
+    overrides: [
+      appPrefsServiceProvider.overrideWithValue(AppPrefsService(sharedPrefs)),
+    ],
+  );
 
-  runApp(const MainApp());
+  final assembledContainer = riverpodRootContainer;
+
+  runApp(ProviderScope(parent: assembledContainer, child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -20,7 +28,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
       home: const MyLoginScreen(),

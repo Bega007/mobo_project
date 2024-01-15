@@ -35,4 +35,28 @@ class ApiClient {
       mapper: (dynamic data) => LoginResponse.fromJson(data as Map<String, dynamic>),
     );
   }
+   
+   Future<UserRegistrationResponse> signUp( {
+
+    required String? firstName,
+    required String? lastName,
+    required String? username,
+    required String? password,
+    required String? email,
+  }) async {
+    final postData = <String, dynamic>{
+
+      'first_name': firstName,
+      'last_name': lastName,
+      'username': username,
+      'password': password,
+      'email': email,
+    };
+    return _httpClient.post(
+      Endpoints.signUp,
+      body: postData,
+      mapper: (dynamic data) => UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
+    );
+  }
 }
+

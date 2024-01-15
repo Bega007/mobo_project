@@ -23,7 +23,6 @@ class MyHomeScreen extends StatelessWidget {
           children: [
             // Banner
             const MyLargeTextIcon(
-              //TODO: change to correct way...
               text: 'Explore What                      Your Home Needs',
             ),
 
