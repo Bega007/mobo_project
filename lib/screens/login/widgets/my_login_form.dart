@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../my_navigation_menu.dart';
+import '../../../providers.dart';
 import '../../../utils/constants/my_sizes.dart';
 import '../../../utils/texts/my_texts.dart';
 import '../../password_configuration/my_forget_password.dart';
@@ -17,15 +21,47 @@ class MyLoginForm extends StatefulWidget {
 }
 
 class _MyLoginFormState extends State<MyLoginForm> {
+  GlobalKey<State<StatefulWidget>> formKey = GlobalKey();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future<void> onLoginButtonTap() async {
+    final scope = ProviderScope.containerOf(context, listen: false);
+    final apiClient = scope.read(apiClientProvider);
+    final authController = scope.read(authControllerProvider.notifier);
+
+    try {
+      final response = await apiClient.signIn(
+        username: emailController.text,
+        password: passwordController.text,
+      );
+
+      //authController.onSignedIn(response);
+
+      if (mounted) {
+        await Navigator.push<Widget>(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MyNavigationMenu(),
+          ),
+        );
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: MySizes.spaceBtwSections),
         child: Column(
           children: [
-            // Email
+            // username/email
             TextFormField(
+              controller: emailController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: MyTexts.email,
@@ -35,6 +71,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
 
             //password
             TextFormField(
+              controller: passwordController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.password_check),
                 labelText: MyTexts.password,
@@ -75,13 +112,8 @@ class _MyLoginFormState extends State<MyLoginForm> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MyNavigationMenu(),
-                    ),
-                  );
+                onPressed: (){
+                  onLoginButtonTap();
                 },
                 child: const Text(MyTexts.signIn),
               ),

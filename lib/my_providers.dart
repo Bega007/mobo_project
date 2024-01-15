@@ -23,7 +23,7 @@ final authControllerProvider = StateNotifierProvider<AuthController, LoggedInUse
   dependencies: [appPrefsServiceProvider],
 );
 
-final apiBaseUrlProvider = Provider((ref) => 'http://216.250.8.232:4003/');
+final apiBaseUrlProvider = Provider((ref) => 'http://216.250.8.232:4003');
 
 final httpClientProvider = Provider(
   (ref) {
