@@ -1,12 +1,9 @@
-import 'package:dio/dio.dart';
-
-import '../providers.dart';
 import 'json_http_client.dart';
 import 'models/products.dart';
 import 'models/response.dart';
 
 extension Endpoints on Never {
-  static const hostProducts = '/api/products/';
+  static const hostProducts = '/api/products';
   static const hostConnectUser = '/api/v1/auth/';
   static const hostCategoryId = '/api/v1/category-detail/{id}/';
   static const hostCategory = '/api/v1/category/';
@@ -36,8 +33,7 @@ class ApiClient {
     return _httpClient.post(
       Endpoints.login,
       body: postData,
-      mapper: (dynamic data) =>
-          LoginResponse.fromJson(data as Map<String, dynamic>),
+      mapper: (dynamic data) => LoginResponse.fromJson(data as Map<String, dynamic>),
     );
   }
 
@@ -58,45 +54,16 @@ class ApiClient {
     return _httpClient.post(
       Endpoints.signUp,
       body: postData,
-      mapper: (dynamic data) =>
-          UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
+      mapper: (dynamic data) => UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
     );
   }
 
-  Future<Products> fetchData({
-    required String? id,
-    required String? category,
-    required String? company,
-    required String? image,
-    required String? title, 
-    required String? description, 
-    required String? price, 
-    required String? created, 
-    required String? isNew, 
-  }) async {
-    final getData = <String, dynamic>{
-      'id': id,
-      'category': category,
-      'company': company,
-      'image': image,
-      'title': title,
-      'description': description,
-      'price': price,
-      'created': created,
-      'isNew': isNew,
-    };
-    
+  Future<List<Products>> getProducts() async {
     return _httpClient.get(
-      Endpoints.hostCategory,
-      body: getData,
-      mapper: (dynamic data) => Products.fromJson(data as Map<String, dynamic>),
+      Endpoints.hostProducts,
+      mapper: (dynamic data) => (data as List<dynamic>)
+          .map((dynamic e) => Products.fromJson(e as Map<String, dynamic>))
+          .toList(growable: false),
     );
   }
-  Future<Products> getData() async {
-    final response = await Dio().get(
-      apiBaseUrlProvider as String,
-    );
-      return Products.fromJson(response.data[]);
-    }
-  
 }

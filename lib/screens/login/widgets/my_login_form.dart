@@ -28,7 +28,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
   Future<void> onLoginButtonTap() async {
     final scope = ProviderScope.containerOf(context, listen: false);
     final apiClient = scope.read(apiClientProvider);
-    final authController = scope.read(authControllerProvider.notifier);
+    // final authController = scope.read(authControllerProvider.notifier);
 
     try {
       final response = await apiClient.signIn(
@@ -36,7 +36,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
         password: passwordController.text,
       );
 
-      //authController.onSignedIn(response);
+      // authController.onSignedIn(response);
 
       if (mounted) {
         log('success');

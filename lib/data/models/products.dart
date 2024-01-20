@@ -9,7 +9,7 @@ class Products {
   String? image;
   String? title;
   String? description;
-  int? price;
+  double? price;
   String? created;
   bool? isNew;
 

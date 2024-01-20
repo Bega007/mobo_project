@@ -35,7 +35,7 @@ class JsonHttpClient {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required T Function(dynamic responseData) mapper, required Future<Products> body,
+    required T Function(dynamic responseData) mapper,
   }) async {
     String? data;
     try {
@@ -84,8 +84,9 @@ class JsonHttpClient {
 
     try {
       return mapper(data != null ? jsonDecode(data) : null);
-    } catch (e) {
+    } catch (e, s) {
       log(e.toString());
+      log(s.toString());
       throw JsonIOException(e);
     }
   }
