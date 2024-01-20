@@ -3,7 +3,7 @@ import 'dart:convert';
 // ignore: depend_on_referenced_packages
 import 'package:state_notifier/state_notifier.dart';
 
-import 'response.dart';
+import 'models/response.dart';
 import 'sevices/preferences.dart';
 
 class LoggedInUser {

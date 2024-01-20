@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import 'exceptions.dart';
+import 'models/products.dart';
 
 // ignore: strict_raw_type
 extension _HttpResponseX on Response {
@@ -34,7 +35,7 @@ class JsonHttpClient {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-    required T Function(dynamic responseData) mapper,
+    required T Function(dynamic responseData) mapper, required Future<Products> body,
   }) async {
     String? data;
     try {

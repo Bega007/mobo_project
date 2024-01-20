@@ -3,11 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobo_project/my_providers.dart';
-import 'package:mobo_project/utils/validator/validators.dart';
+import '../../../my_providers.dart';
 
 import '../../../utils/constants/my_sizes.dart';
 import '../../../utils/texts/my_texts.dart';
+import '../../../utils/validator/validators.dart';
 import '../my_success_screen.dart';
 import 'my_terms_conditions_checkbox.dart';
 
