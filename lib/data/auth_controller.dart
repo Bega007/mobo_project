@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:state_notifier/state_notifier.dart';
 
 import 'models/response.dart';
-import 'sevices/preferences.dart';
+import 'sevices/shared_preferences.dart';
 
 class LoggedInUser {
   // final String username;

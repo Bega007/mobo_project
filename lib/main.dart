@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobo_project/data/sevices/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'data/sevices/preferences.dart';
 import 'my_providers.dart';
 import 'screens/login/my_login_screen.dart';
 import 'utils/theme/my_theme.dart';
@@ -10,6 +9,7 @@ import 'utils/theme/my_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  
   final sharedPrefs = await SharedPreferences.getInstance();
   final riverpodRootContainer = ProviderContainer(
     overrides: [
@@ -18,6 +18,7 @@ void main() async {
   );
 
   final assembledContainer = riverpodRootContainer;
+  
 
   runApp(
     ProviderScope(
@@ -26,6 +27,7 @@ void main() async {
     ),
   );
 }
+
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});

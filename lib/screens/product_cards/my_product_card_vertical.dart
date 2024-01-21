@@ -52,18 +52,20 @@ class MyProductCardVertical extends ConsumerWidget {
                 children: [
                   //Thumbnail, whishlist Button
                   MyRoundedContainer(
-                    height: 210,
+                    height: 130,
+                    width: 180,
                     padding: const EdgeInsets.all(MySizes.sm),
                     backgroundColor: dark ? MyColors.dark : MyColors.light,
                     child: Stack(
                       children: [
                         //Thumbnail Image
-                        //TODO: change it to Image.network()
-                        // MyRoundedImage(
-                        //   imageUrl: data[index].image ?? '',
-                        //   applyImageRadius: true,
-                        // ),
-                        Image.network(data[index].image ?? ''),
+                        Center(
+                          child: MyRoundedImage(
+                            imageUrl: data[index].image ?? '',
+                            applyImageRadius: true,
+                            isNetworkImage: true,
+                          ),
+                        ),
                         // Favorite Icon Button
                         const Positioned(
                           top: 0,
@@ -91,7 +93,7 @@ class MyProductCardVertical extends ConsumerWidget {
                           children: [
                             // Price
                             Text(
-                              data[index].price.toString(),
+                              '${data[index].price} TMT',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.headlineMedium,

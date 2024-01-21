@@ -6,15 +6,16 @@ import 'package:riverpod/riverpod.dart';
 import 'data/api_client.dart';
 import 'data/auth_controller.dart';
 import 'data/json_http_client.dart';
-import 'data/sevices/preferences.dart';
-
+import 'data/sevices/shared_preferences.dart';
 
 /// It is an error to use this provider without overriding it's value.
 final appPrefsServiceProvider = Provider<AppPrefsService>(
-  (ref) => throw UnimplementedError("Can't use this provider without overriding it's value."),
+  (ref) => throw UnimplementedError(
+      "Can't use this provider without overriding it's value."),
 );
 
-final authControllerProvider = StateNotifierProvider<AuthController, LoggedInUser?>(
+final authControllerProvider =
+    StateNotifierProvider<AuthController, LoggedInUser?>(
   (ref) {
     final appPrefs = ref.watch(appPrefsServiceProvider);
     final initialState = AuthController.initialState(appPrefs);
@@ -35,7 +36,8 @@ final httpClientProvider = Provider(
           try {
             final authToken = ref.read(authControllerProvider)?.accessToken;
             if (authToken != null) {
-              options.headers[HttpHeaders.authorizationHeader] = 'Bearer $authToken';
+              options.headers[HttpHeaders.authorizationHeader] =
+                  'Bearer $authToken';
             }
           } catch (e) {
             //ignored

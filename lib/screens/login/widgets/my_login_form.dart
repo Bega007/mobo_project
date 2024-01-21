@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../my_navigation_menu.dart';
 import '../../../providers.dart';
@@ -28,7 +29,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
   Future<void> onLoginButtonTap() async {
     final scope = ProviderScope.containerOf(context, listen: false);
     final apiClient = scope.read(apiClientProvider);
-    // final authController = scope.read(authControllerProvider.notifier);
+   final authController = scope.read(authControllerProvider.notifier);
 
     try {
       final response = await apiClient.signIn(
@@ -36,7 +37,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
         password: passwordController.text,
       );
 
-      // authController.onSignedIn(response);
+       authController.onSignedIn(response);
 
       if (mounted) {
         log('success');

@@ -28,7 +28,7 @@ class MyRoundedImage extends StatelessWidget {
     this.padding,
     this.isNetworkImage = false,
     this.onPressed,
-    this.borderRadius = MySizes.md,
+    this.borderRadius = MySizes.md, 
   });
 
   @override

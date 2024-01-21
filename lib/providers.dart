@@ -6,7 +6,7 @@ import 'package:riverpod/riverpod.dart';
 import 'data/api_client.dart';
 import 'data/auth_controller.dart';
 import 'data/json_http_client.dart';
-import 'data/sevices/preferences.dart';
+import 'data/sevices/shared_preferences.dart';
 
 /// It is an error to use this provider without overriding it's value.
 final appPrefsServiceProvider = Provider<AppPrefsService>(
