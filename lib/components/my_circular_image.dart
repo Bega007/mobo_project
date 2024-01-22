@@ -7,7 +7,7 @@ import '../utils/helpers/my_helper_functions.dart';
 class MyCircularImage extends StatelessWidget {
   final BoxFit? fit;
   final String image;
-  final bool isNetworkImage;
+  //final bool isNetworkImage;
   final Color? overlayColor;
   final Color? backgroundColor;
   final double width;
@@ -18,7 +18,7 @@ class MyCircularImage extends StatelessWidget {
     super.key,
     this.fit = BoxFit.cover,
     required this.image,
-    this.isNetworkImage = false,
+    //this.isNetworkImage = false,
     this.overlayColor,
     this.backgroundColor,
     this.width = 60,
@@ -40,11 +40,13 @@ class MyCircularImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: Center(
-        child: Image(
+        child: Image.network(
           fit: fit,
-          image: isNetworkImage
+          image,
+          //fit: fit,
+          /*image: isNetworkImage
               ? NetworkImage(image)
-              : AssetImage(image) as ImageProvider,
+              : AssetImage(image) as ImageProvider,*/
           //color: overlayColor,
         ),
       ),

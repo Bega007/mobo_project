@@ -12,13 +12,13 @@ class MyVerticalImageText extends StatelessWidget {
   final Color textColor;
   final Color? backgroundColor;
   final void Function()? onTap;
-  final bool isNetworkImage;
+  //final bool isNetworkImage;
 
   const MyVerticalImageText({
     super.key,
     required this.image,
     required this.title,
-    this.isNetworkImage = false,
+    //this.isNetworkImage = false,
     this.textColor = MyColors.black,
     this.backgroundColor = Colors.transparent,
     this.onTap,
@@ -53,7 +53,7 @@ class MyVerticalImageText extends StatelessWidget {
                 ),
                 MyCircularImage(
                   image: image,
-                  isNetworkImage: isNetworkImage,
+                  //isNetworkImage: isNetworkImage,
                   backgroundColor: Colors.transparent,
                   overlayColor: dark ? MyColors.white : MyColors.black,
                 ),
