@@ -12,11 +12,13 @@ class MyVerticalImageText extends StatelessWidget {
   final Color textColor;
   final Color? backgroundColor;
   final void Function()? onTap;
+  final bool isNetworkImage;
 
   const MyVerticalImageText({
     super.key,
     required this.image,
     required this.title,
+    this.isNetworkImage = false,
     this.textColor = MyColors.black,
     this.backgroundColor = Colors.transparent,
     this.onTap,
@@ -33,21 +35,25 @@ class MyVerticalImageText extends StatelessWidget {
           MyRoundedContainer(
             padding: const EdgeInsets.all(MySizes.sm),
             showBorder: true,
-            backgroundColor: backgroundColor ?? (dark ? MyColors.black : MyColors.white),
+            backgroundColor:
+                backgroundColor ?? (dark ? MyColors.black : MyColors.white),
             child: Row(
               children: [
                 Text(
                   title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: Theme.of(context).textTheme.labelLarge!.apply(color: textColor),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .apply(color: textColor),
                 ),
                 const SizedBox(
                   width: MySizes.spaceBtwItems,
                 ),
                 MyCircularImage(
                   image: image,
-                  isNetworkImage: false,
+                  isNetworkImage: isNetworkImage,
                   backgroundColor: Colors.transparent,
                   overlayColor: dark ? MyColors.white : MyColors.black,
                 ),

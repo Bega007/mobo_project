@@ -1,4 +1,5 @@
 import 'json_http_client.dart';
+import 'models/company_detail.dart';
 import 'models/products.dart';
 import 'models/response.dart';
 
@@ -8,7 +9,7 @@ extension Endpoints on Never {
   static const hostCategoryId = '/api/v1/category-detail/{id}/';
   static const hostCategory = '/api/v1/category/';
   static const hostCompanyId = '/api/v1/company-detail/{id}/';
-  static const hostCompanyList = '/api/v1/company-list/';
+  static const hostCompanyList = '/api/v1/company-list';
   static const hostProductsV1 = '/api/products';
   static const hostRegister = '/api/v1/register/';
   static const validateEmail = '/api/v1/validate_email';
@@ -63,6 +64,14 @@ class ApiClient {
       Endpoints.hostProducts,
       mapper: (dynamic data) => (data as List<dynamic>)
           .map((dynamic e) => Products.fromJson(e as Map<String, dynamic>))
+          .toList(growable: false),
+    );
+  }
+  Future<List<CompanyDetail>> getCompany() async {
+    return _httpClient.get(
+      Endpoints.hostCompanyList,
+      mapper: (dynamic data) => (data as List<dynamic>)
+          .map((dynamic e) => CompanyDetail.fromJson(e as Map<String, dynamic>))
           .toList(growable: false),
     );
   }

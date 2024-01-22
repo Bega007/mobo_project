@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import 'exceptions.dart';
-import 'models/products.dart';
 
 // ignore: strict_raw_type
 extension _HttpResponseX on Response {
