@@ -3,10 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../my_navigation_menu.dart';
-import '../../../providers.dart';
+import '../../../my_providers.dart';
 import '../../../utils/constants/my_sizes.dart';
 import '../../../utils/texts/my_texts.dart';
 import '../../password_configuration/my_forget_password.dart';
@@ -48,9 +47,8 @@ class _MyLoginFormState extends State<MyLoginForm> {
           ),
         );
       }
-    } catch (e, s) {
-      log(e.toString());
-      log(s.toString());
+    } catch (e) {
+      // TODO show error with snackBar...
     }
   }
 

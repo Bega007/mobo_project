@@ -8,80 +8,66 @@ import 'sevices/shared_preferences.dart';
 
 class LoggedInUser {
   // final String username;
-  final String accessToken;
+  final String authToken;
 
   LoggedInUser({
     // required this.username,
-    required this.accessToken,
+    required this.authToken,
   });
 
   LoggedInUser copyWith({
-    String? username,
-    String? accessToken,
+    // String? username,
+    String? authToken,
   }) {
     return LoggedInUser(
       // username: username ?? this.username,
-      accessToken: accessToken ?? this.accessToken,
+      authToken: authToken ?? this.authToken,
     );
   }
-
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      // 'username': username,
-      'access_token': accessToken,
-    };
-  }
-
-  factory LoggedInUser.fromMap(Map<String, dynamic> map) {
-    return LoggedInUser(
-      // username: map['username'] as String,
-      accessToken: map['access_token'] as String,
-    );
-  }
-
-  String toJsonString() => json.encode(toMap());
-
-  factory LoggedInUser.fromJson(String source) => LoggedInUser.fromMap(
-        json.decode(source) as Map<String, dynamic>,
-      );
 }
 
 class AuthController extends StateNotifier<LoggedInUser?> {
   // ignore: constant_identifier_names
-  static const _LoggedInUser = 'logged_in_user';
+  static const _Username = 'username';
+  static const _AuthToken = 'auth_token';
 
   final AppPrefsService _service;
 
-  String? get authToken => state?.accessToken;
+  String? get authToken => state?.authToken;
 
   AuthController(this._service, super.state);
 
   static LoggedInUser? initialState(AppPrefsService service) {
-    LoggedInUser? user;
+    // String username = '';
+    String? authToken;
 
     try {
-      final userJsonString = service.getString(_LoggedInUser);
-      if (userJsonString != null) {
-        user = LoggedInUser.fromJson(userJsonString);
-      } else {
-        user = null;
-      }
+      authToken = service.getString(_AuthToken);
+      // username = service.getString(_UserName) ?? '';
     } catch (e) {
       //ignored
     }
 
-    return user;
+    if(authToken != null){
+      return LoggedInUser(
+        // username: username,
+        authToken: authToken,
+      );
+    }
+
+    return null;
   }
 
   void onSignedIn(LoginResponse response) {
     final newState = LoggedInUser(
       // username: response.username,
-      accessToken: response.token,
+      authToken: response.token,
     );
     state = newState;
 
     try {
-      /*await*/ _service.setString(_LoggedInUser, newState.toJsonString());
+      // _service.setString(_UserName, newState.username);
+      _service.setString(_AuthToken, newState.authToken);
     } catch (e) {
       //no-op
     }
@@ -91,7 +77,8 @@ class AuthController extends StateNotifier<LoggedInUser?> {
     state = null;
 
     try {
-      await _service.remove(_LoggedInUser);
+      await _service.remove(_AuthToken);
+      // await _service.remove(_UserName);
     } catch (e) {
       //ignored
     }

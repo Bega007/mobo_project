@@ -7,7 +7,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../components/my_circular_icon.dart';
 import '../../components/my_rounded_container.dart';
 import '../../components/my_rounded_image.dart';
-import '../../providers.dart';
+import '../../my_providers.dart';
 import '../../utils/constants/my_colors.dart';
 import '../../utils/constants/my_shadow_style.dart';
 import '../../utils/constants/my_sizes.dart';
