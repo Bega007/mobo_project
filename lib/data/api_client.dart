@@ -1,4 +1,5 @@
 import 'json_http_client.dart';
+import 'models/category.dart';
 import 'models/company_detail.dart';
 import 'models/products.dart';
 import 'models/response.dart';
@@ -34,7 +35,8 @@ class ApiClient {
     return _httpClient.post(
       Endpoints.login,
       body: postData,
-      mapper: (dynamic data) => LoginResponse.fromJson(data as Map<String, dynamic>),
+      mapper: (dynamic data) =>
+          LoginResponse.fromJson(data as Map<String, dynamic>),
     );
   }
 
@@ -55,7 +57,8 @@ class ApiClient {
     return _httpClient.post(
       Endpoints.signUp,
       body: postData,
-      mapper: (dynamic data) => UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
+      mapper: (dynamic data) =>
+          UserRegistrationResponse.fromJson(data as Map<String, dynamic>),
     );
   }
 
@@ -67,6 +70,16 @@ class ApiClient {
           .toList(growable: false),
     );
   }
+
+  Future<List<Category>> getCategory() async {
+    return _httpClient.get(
+      Endpoints.hostCategory,
+      mapper: (dynamic data) => (data as List<dynamic>)
+          .map((dynamic e) => Category.fromJson(e as Map<String, dynamic>))
+          .toList(growable: false),
+    );
+  }
+
   Future<List<CompanyDetail>> getCompany() async {
     return _httpClient.get(
       Endpoints.hostCompanyList,
