@@ -7,12 +7,14 @@ import '../components/my_ratings_and_avatar.dart';
 import '../components/my_section_heading.dart';
 import '../components/my_similiar_products.dart';
 import '../components/my_tab_bar_view.dart';
+import '../data/models/products.dart';
 import '../utils/constants/my_colors.dart';
 import '../utils/constants/my_sizes.dart';
 
 // ignore: must_be_immutable
 class MyProductDetailScreen extends StatelessWidget {
-  MyProductDetailScreen({super.key});
+  final Products products;
+  MyProductDetailScreen({super.key, required this.products});
 
   int gottenStars = 4;
 
@@ -24,7 +26,7 @@ class MyProductDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const MyProductImage(),
+            MyProductImage(image: products.image ?? '',),
             Padding(
               padding: const EdgeInsets.only(
                 right: MySizes.defaultSpace,

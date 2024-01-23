@@ -36,7 +36,7 @@ class MyProductCardVertical extends ConsumerWidget {
             onTap: () {
               Navigator.of(context).push<Widget>(
                 MaterialPageRoute(
-                  builder: (context) => MyProductDetailScreen(),
+                  builder: (context) => MyProductDetailScreen(products: data[index],),
                 ),
               );
             },
