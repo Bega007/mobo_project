@@ -1,18 +1,15 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../my_providers.dart';
 import '../utils/constants/my_colors.dart';
-import '../utils/constants/my_image_string.dart';
 import '../utils/helpers/my_helper_functions.dart';
 import 'my_market_products.dart';
 import 'my_vertical_image_text.dart';
 
-final getCompanyProvider = FutureProvider((ref) {
+final getCategoryProvider = FutureProvider((ref) {
   final apiClient = ref.watch(apiClientProvider);
-  return apiClient.getCompany();
+  return apiClient.getCategory();
 });
 
 class MyHomeCategories extends ConsumerWidget {
@@ -23,9 +20,9 @@ class MyHomeCategories extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dark = MyHelperFunctions.isDarkMode(context);
-    final company = ref.watch(getCompanyProvider);
+    final category = ref.watch(getCategoryProvider);
 
-    return company.when(
+    return category.when(
       data: (data) => 
           SizedBox(
             height: 100,
@@ -37,11 +34,11 @@ class MyHomeCategories extends ConsumerWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8),
                   child: MyVerticalImageText(
-                    image: 
-                    data[index].image ?? '',
+                    // image:
+                    // data[index].image ?? '',
                     //'${data[index].image}',
                     //isNetworkImage: true,
-                    title: data[index].title ?? '',
+                    title: data[index].name ?? '',
                     textColor: dark ? MyColors.white : MyColors.black,
                     onTap: () {
                       Navigator.of(context).push<Widget>(
@@ -56,8 +53,6 @@ class MyHomeCategories extends ConsumerWidget {
             ),
           ),
          error: (error, stackTress) {
-        log(error.toString());
-        log(stackTress.toString());
         return Text(error.toString());
       },
       loading: () => const Center(child: CircularProgressIndicator()),

@@ -7,8 +7,9 @@ import 'my_appbar.dart';
 import 'my_curved_edges_widget.dart';
 
 class MyProductImage extends StatelessWidget {
+  final String image;
   const MyProductImage({
-    super.key,
+    super.key, required this.image,
   });
 
   @override
@@ -22,10 +23,10 @@ class MyProductImage extends StatelessWidget {
             Container(
               height: 350,
               width: double.maxFinite,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                    MyImages.chairdesign2,
+                  image: NetworkImage(
+                    image,
                   ),
                   fit: BoxFit.cover,
                 ),
