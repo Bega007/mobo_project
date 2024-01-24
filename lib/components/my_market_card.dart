@@ -48,15 +48,20 @@ class MyMarketCard extends ConsumerWidget {
           child: Row(
             children: [
               //Icon
-              if (image != null)
+              // if (image != null)
               Flexible(
-                child: MyCircularImage(
+                child:
+                Image.network(
+                  image!,
+                  errorBuilder: (context, error, stackTrace)=> Icon(Icons.person),
+                ),
+                /*MyCircularImage(
                   image: 
                   //image!,
                   data[index].image ?? '',
                   //'',
                   backgroundColor: Colors.transparent,
-                ),
+                ),*/
               ),
 
               const SizedBox(width: MySizes.spaceBtwItems / 2),

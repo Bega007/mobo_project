@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -5,7 +7,6 @@ import '../components/my_appbar.dart';
 import '../components/my_grid_view.dart';
 import '../components/my_market_card.dart';
 import '../components/my_market_products.dart';
-import '../data/models/company_detail.dart';
 import '../my_providers.dart';
 import '../utils/constants/my_sizes.dart';
 
@@ -22,7 +23,9 @@ class MyAllMarketsScreen extends ConsumerWidget {
     final companyDetail = ref.watch(getCompanyProvider);
 
     return companyDetail.when(
-      data: (data) => Scaffold(
+      data: (data) {
+        log(data[2].image.toString());
+        return Scaffold(
         appBar: const MyAppBar(
           showBackArrow: false,
           title: Text('Markets'),
@@ -44,25 +47,27 @@ class MyAllMarketsScreen extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     return MyMarketCard(
                       title: data[index].title ?? '',
-                      //image: data[index].image ?? '',
+                      image: data[index].image ?? '',
                       showBorder: true,
                       onTap: () {
-                      Navigator.push<Widget>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyMarketProducts(
-                           companyDetail: data[index],
-                        ),
-                      ),
+                        Navigator.push<Widget>(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyMarketProducts(
+                              companyDetail: data[index],
+                            ),
+                          ),
+                        );
+                      },
                     );
-                    },);
                   },
                 ),
               ],
             ),
           ),
         ),
-      ),
+      );
+      },
       error: (error, stackTress) {
         return Text(error.toString());
       },
