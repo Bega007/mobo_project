@@ -7,7 +7,7 @@ import 'screens/my_wishlist_screen.dart';
 import 'utils/helpers/my_helper_functions.dart';
 
 class MyNavigationMenu extends StatefulWidget {
-  const MyNavigationMenu({super.key});
+  const MyNavigationMenu({super.key,});
 
   @override
   State<MyNavigationMenu> createState() => _MyNavigationMenuState();
@@ -25,6 +25,7 @@ class _MyNavigationMenuState extends State<MyNavigationMenu> {
   @override
   Widget build(BuildContext context) {
     final darkMode = MyHelperFunctions.isDarkMode(context);
+    
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -61,7 +62,7 @@ class _MyNavigationMenuState extends State<MyNavigationMenu> {
 }
 
 final List<Widget> _screens = [
-  const MyHomeScreen(),
+   const MyHomeScreen(),
   const MyAllMarketsScreen(),
   //const MyCartScreen(),
   const MyWishlistScreen(),

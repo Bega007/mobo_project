@@ -36,15 +36,15 @@ class MyProductDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Product Name
-                  const MySectionHeading(
-                    title: 'Designed Chair',
+                   MySectionHeading(
+                    title: products.title ?? '',
                     showActionButton: false,
                     textColor: MyColors.textSecondary,
                   ),
 
                   // Price
-                  const MySectionHeading(
-                    title: r'$250',
+                   MySectionHeading(
+                    title: '${products.price} TMT',
                     showActionButton: false,
                     textColor: MyColors.warning,
                   ),

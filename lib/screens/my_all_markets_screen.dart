@@ -1,51 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../components/my_appbar.dart';
 import '../components/my_grid_view.dart';
 import '../components/my_market_card.dart';
 import '../components/my_market_products.dart';
+import '../data/models/company_detail.dart';
+import '../my_providers.dart';
 import '../utils/constants/my_sizes.dart';
 
-class MyAllMarketsScreen extends StatelessWidget {
+final getCompanyProvider = FutureProvider((ref) {
+  final apiClient = ref.watch(apiClientProvider);
+  return apiClient.getCompany();
+});
+
+class MyAllMarketsScreen extends ConsumerWidget {
   const MyAllMarketsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const MyAppBar(
-        showBackArrow: false,
-        title: Text('Markets'),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(MySizes.defaultSpace),
-          child: Column(
-            children: [
-              // Heading
-              //const MySectionHeading( title: 'Markets',showActionButton: false,),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final companyDetail = ref.watch(getCompanyProvider);
 
-              const SizedBox(height: MySizes.spaceBtwItems),
+    return companyDetail.when(
+      data: (data) => Scaffold(
+        appBar: const MyAppBar(
+          showBackArrow: false,
+          title: Text('Markets'),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(MySizes.defaultSpace),
+            child: Column(
+              children: [
+                // Heading
+                //const MySectionHeading( title: 'Markets',showActionButton: false,),
 
-              //Brands Markets
-              MyGridView(
-                itemCount: 10,
-                mainAxisExtent: 80,
-                itemBuilder: (context, index) => MyMarketCard(
-                  showBorder: true,
-                  onTap: () {
-                    Navigator.push<Widget>(
+                const SizedBox(height: MySizes.spaceBtwItems),
+
+                //Brands Markets
+                MyGridView(
+                  itemCount: data.length,
+                  mainAxisExtent: 80,
+                  itemBuilder: (context, index) {
+                    return MyMarketCard(
+                      title: data[index].title ?? '',
+                      //image: data[index].image ?? '',
+                      showBorder: true,
+                      onTap: () {
+                      Navigator.push<Widget>(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyMarketProducts(),
+                        builder: (context) => MyMarketProducts(
+                           companyDetail: data[index],
+                        ),
                       ),
                     );
+                    },);
                   },
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+      error: (error, stackTress) {
+        return Text(error.toString());
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
     );
   }
 }

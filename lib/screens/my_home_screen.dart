@@ -6,13 +6,16 @@ import '../components/my_prmo_slider.dart';
 import '../components/my_rounded_image.dart';
 import '../components/my_search_bar.dart';
 import '../components/my_section_heading.dart';
+import '../data/models/company_detail.dart';
 import '../utils/constants/my_image_string.dart';
 import '../utils/constants/my_sizes.dart';
 import 'product_cards/my_product_card_vertical.dart';
 import 'product_cards/my_product_title_text.dart';
 
 class MyHomeScreen extends StatelessWidget {
-  const MyHomeScreen({super.key});
+  const MyHomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +40,9 @@ class MyHomeScreen extends StatelessWidget {
             ),
 
             // categories
-            const MyHomeCategories(),
-
+            MyHomeCategories(
+              //companyDetail: companyDetail,),
+            ),
             // Image Slider
             const Padding(
               padding: EdgeInsets.all(8),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import '../utils/constants/my_colors.dart';
-import '../utils/constants/my_image_string.dart';
 import '../utils/helpers/my_helper_functions.dart';
 import 'my_appbar.dart';
 import 'my_curved_edges_widget.dart';
@@ -9,7 +8,8 @@ import 'my_curved_edges_widget.dart';
 class MyProductImage extends StatelessWidget {
   final String image;
   const MyProductImage({
-    super.key, required this.image,
+    super.key,
+    required this.image,
   });
 
   @override
@@ -21,7 +21,7 @@ class MyProductImage extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: 350,
+              height: 260,
               width: double.maxFinite,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -41,8 +41,6 @@ class MyProductImage extends StatelessWidget {
                 ),
               ],
             ),
-
-            // Details
           ],
         ),
       ),

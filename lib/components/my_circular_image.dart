@@ -40,16 +40,13 @@ class MyCircularImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: Center(
-        child: Image.network(
-          fit: fit,
-          image,
+        child: Image.network(image, fit: fit,),
           //fit: fit,
           /*image: isNetworkImage
               ? NetworkImage(image)
               : AssetImage(image) as ImageProvider,*/
           //color: overlayColor,
         ),
-      ),
     );
   }
 }
