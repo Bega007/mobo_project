@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
+import '../data/models/company_detail.dart';
 import '../utils/constants/my_colors.dart';
 import '../utils/constants/my_sizes.dart';
 import '../utils/helpers/my_helper_functions.dart';
@@ -40,13 +42,18 @@ class MyCircularImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: Center(
-        child: Image.network(image, fit: fit,),
-          //fit: fit,
-          /*image: isNetworkImage
+        child: Image.network(
+          image,
+          fit: fit,
+           errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Iconsax.shop),
+        ),
+        //fit: fit,
+        /*image: isNetworkImage
               ? NetworkImage(image)
               : AssetImage(image) as ImageProvider,*/
-          //color: overlayColor,
-        ),
+        //color: overlayColor,
+      ),
     );
   }
 }

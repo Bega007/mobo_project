@@ -6,24 +6,22 @@ class Products {
   int? id;
   String? category;
   String? company;
-  String? image;
   String? title;
+  List<String>? images;
   String? description;
-  double? price;
+  int? price;
   String? created;
-  bool? isNew;
 
-  Products({
-    this.id,
-    this.category,
-    this.company,
-    this.image,
-    this.title,
-    this.description,
-    this.price,
-    this.created,
-    this.isNew,
-  });
-   factory Products.fromJson(Map<String, dynamic> json) =>
+  Products(
+      {this.id,
+      this.category,
+      this.company,
+      this.title,
+      this.images,
+      this.description,
+      this.price,
+      this.created
+      });
+  factory Products.fromJson(Map<String, dynamic> json) =>
       _$ProductsFromJson(json);
 }

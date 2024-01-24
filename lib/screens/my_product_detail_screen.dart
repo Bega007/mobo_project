@@ -26,7 +26,7 @@ class MyProductDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            MyProductImage(image: products.image ?? '',),
+            MyProductImage(image: products.images.toString(),),
             Padding(
               padding: const EdgeInsets.only(
                 right: MySizes.defaultSpace,

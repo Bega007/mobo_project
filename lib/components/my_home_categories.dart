@@ -38,8 +38,7 @@ class MyHomeCategories extends ConsumerWidget {
               padding: const EdgeInsets.all(8),
               child: MyVerticalImageText(
                 title: data[index].name ?? '',
-                // image:
-                // data[index].image ?? '',
+                 image: data[index].image ?? '',
                 //'${data[index].image}',
                 //isNetworkImage: true,
                 textColor: dark ? MyColors.white : MyColors.black,

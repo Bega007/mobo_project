@@ -20,26 +20,26 @@ UserRegistrationResponse _$UserRegistrationResponseFromJson(
         Map<String, dynamic> json) =>
     UserRegistrationResponse(
       id: json['id'] as int?,
-      dateJoined: json['dateJoined'] as String?,
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       username: json['username'] as String?,
       password: json['password'] as String?,
       email: json['email'] as String?,
-      isStaff: json['isStaff'] as bool?,
+      isAdmin: json['isAdmin'] as bool?,
       isCompany: json['isCompany'] as bool?,
+      created: json['created'] as String?,
     );
 
 Map<String, dynamic> _$UserRegistrationResponseToJson(
         UserRegistrationResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'dateJoined': instance.dateJoined,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'username': instance.username,
       'password': instance.password,
       'email': instance.email,
-      'isStaff': instance.isStaff,
+      'isAdmin': instance.isAdmin,
       'isCompany': instance.isCompany,
+      'created': instance.created,
     };

@@ -18,55 +18,57 @@ final getCompanyProvider = FutureProvider((ref) {
 class MyAllMarketsScreen extends ConsumerWidget {
   const MyAllMarketsScreen({super.key});
 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final companyDetail = ref.watch(getCompanyProvider);
+    final index = 0;
 
     return companyDetail.when(
       data: (data) {
-        log(data[2].image.toString());
+        log(data[index].image.toString());
         return Scaffold(
-        appBar: const MyAppBar(
-          showBackArrow: false,
-          title: Text('Markets'),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(MySizes.defaultSpace),
-            child: Column(
-              children: [
-                // Heading
-                //const MySectionHeading( title: 'Markets',showActionButton: false,),
+          appBar: const MyAppBar(
+            showBackArrow: false,
+            title: Text('Markets'),
+          ),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(MySizes.defaultSpace),
+              child: Column(
+                children: [
+                  // Heading
+                  //const MySectionHeading( title: 'Markets',showActionButton: false,),
 
-                const SizedBox(height: MySizes.spaceBtwItems),
+                  const SizedBox(height: MySizes.spaceBtwItems),
 
-                //Brands Markets
-                MyGridView(
-                  itemCount: data.length,
-                  mainAxisExtent: 80,
-                  itemBuilder: (context, index) {
-                    return MyMarketCard(
-                      title: data[index].title ?? '',
-                      image: data[index].image ?? '',
-                      showBorder: true,
-                      onTap: () {
-                        Navigator.push<Widget>(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyMarketProducts(
-                              companyDetail: data[index],
+                  //Brands Markets
+                  MyGridView(
+                    itemCount: data.length,
+                    mainAxisExtent: 80,
+                    itemBuilder: (context, index) {
+                      return MyMarketCard(
+                        title: data[index].title ?? '',
+                        image: data[index].image ?? '',
+                        showBorder: true,
+                        onTap: () {
+                          Navigator.push<Widget>(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyMarketProducts(
+                                companyDetail: data[index],
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      );
+        );
       },
       error: (error, stackTress) {
         return Text(error.toString());

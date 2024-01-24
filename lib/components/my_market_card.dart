@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../data/models/company_detail.dart';
 import '../my_providers.dart';
@@ -19,6 +20,7 @@ class MyMarketCard extends ConsumerWidget {
   final void Function()? onTap;
   final String? title;
   final String? image;
+  final index = 0;
   //final CompanyDetail companyDetail;
 
   const MyMarketCard({
@@ -29,15 +31,12 @@ class MyMarketCard extends ConsumerWidget {
     this.onTap,
     //required this.companyDetail
   });
-  
-  
-
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     //final isDark = MyHelperFunctions.isDarkMode(context);
-    final index = 0;
     final companyDetail = ref.watch(getCompanyProvider);
+    
     return companyDetail.when(
       data: (data) => GestureDetector(
         onTap: onTap,
@@ -48,21 +47,21 @@ class MyMarketCard extends ConsumerWidget {
           child: Row(
             children: [
               //Icon
-              // if (image != null)
-              Flexible(
-                child:
-                Image.network(
+              //if (image != null)
+                Flexible(
+                  child:
+                      /*Image.network(
                   image!,
-                  errorBuilder: (context, error, stackTrace)=> Icon(Icons.person),
-                ),
-                /*MyCircularImage(
-                  image: 
-                  //image!,
-                  data[index].image ?? '',
-                  //'',
-                  backgroundColor: Colors.transparent,
+                  errorBuilder: (context, error, stackTrace)=> const Icon(Iconsax.shop),
                 ),*/
-              ),
+                      MyCircularImage(
+                    image: data[index].image ?? '',
+                    //image!,
+                    
+                    //'',
+                    backgroundColor: Colors.transparent,
+                  ),
+                ),
 
               const SizedBox(width: MySizes.spaceBtwItems / 2),
 

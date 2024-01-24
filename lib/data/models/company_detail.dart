@@ -4,19 +4,19 @@ part 'company_detail.g.dart';
 @JsonSerializable()
 class CompanyDetail {
   int? id;
-  String? ownerCompany;
   String? title;
   String? image;
   String? description;
   String? created;
+  int? count;
 
   CompanyDetail({
     this.id,
-    this.ownerCompany,
-    this.title,
-    this.image,
-    this.description,
-    this.created,
+      this.title,
+      this.image,
+      this.description,
+      this.created,
+      this.count
   });
   factory CompanyDetail.fromJson(Map<String, dynamic> json) =>
       _$CompanyDetailFromJson(json);

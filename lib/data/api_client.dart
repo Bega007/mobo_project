@@ -11,8 +11,10 @@ extension Endpoints on Never {
   static const hostCategory = '/api/v1/category/';
   static const hostCompanyId = '/api/v1/company-detail/{id}/';
   static const hostCompanyList = '/api/v1/company-list';
-  static const hostProductsV1 = '/api/products';
+  static const hostProductsV1 = '/api/v1/products';
+  static const hostProfiles = '/api/v1/profiles';
   static const hostRegister = '/api/v1/register/';
+  static const hostUserProfile = '/api/v1/user-profile/';
   static const validateEmail = '/api/v1/validate_email';
   static const signUp = '/api/v1/register/';
   static const login = '/api/v1/auth/';
@@ -48,8 +50,8 @@ class ApiClient {
     required String? email,
   }) async {
     final postData = <String, dynamic>{
-      'first_name': firstName,
-      'last_name': lastName,
+      'firstName': firstName,
+      'lastName': lastName,
       'username': username,
       'password': password,
       'email': email,

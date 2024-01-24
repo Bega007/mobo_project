@@ -19,26 +19,25 @@ class LoginResponse {
 @JsonSerializable()
 class UserRegistrationResponse {
   int? id;
-  String? dateJoined;
   String? firstName;
   String? lastName;
   String? username;
   String? password;
   String? email;
-  bool? isStaff;
+  bool? isAdmin;
   bool? isCompany;
+  String? created;
 
   UserRegistrationResponse(
       {this.id,
-      this.dateJoined,
       this.firstName,
       this.lastName,
       this.username,
       this.password,
       this.email,
-      this.isStaff,
-      this.isCompany});
-
+      this.isAdmin,
+      this.isCompany,
+      this.created});
       factory UserRegistrationResponse.fromJson(Map<String, dynamic> json) =>
       _$UserRegistrationResponseFromJson(json);
 }

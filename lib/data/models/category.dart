@@ -5,13 +5,10 @@ part 'category.g.dart';
 class Category {
   int? id;
   String? name;
+  String? image;
   String? created;
 
-  Category({
-    this.id,
-    this.name,
-    this.created,
-  });
+  Category({this.id, this.name, this.image, this.created});
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
