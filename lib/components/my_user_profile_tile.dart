@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
-import '../data/models/profile.dart';
 import '../my_providers.dart';
 import '../screens/my_profile_editing.dart';
 import '../utils/constants/my_colors.dart';
@@ -24,17 +23,17 @@ class MyUserProfileTile extends ConsumerWidget {
    return Profile.when(
       data: (data) =>  ListTile(
       leading: MyCircularImage(
-        image: data[index].image ?? '',
+        image: data.image ?? '',
         width: 50,
         height: 50,
         padding: 0,
       ),
       title: Text(
-        '${data[index].firstName}' '${data[index].lastName}',
+        '${data.firstName}' '${data.lastName}',
         style: Theme.of(context).textTheme.headlineSmall!.apply(color: MyColors.white),
       ),
       subtitle: Text(
-        data[index].email ?? '',
+        data.email ?? '',
         style: Theme.of(context).textTheme.bodyMedium!.apply(color: MyColors.white),
       ),
       trailing: IconButton(
@@ -42,7 +41,7 @@ class MyUserProfileTile extends ConsumerWidget {
           Navigator.push<Widget>(
             context,
             MaterialPageRoute(
-              builder: (context) =>  MyProfileEditingScreen(profile: data[index],),
+              builder: (context) =>  MyProfileEditingScreen(profile: data),
             ),
           );
         },

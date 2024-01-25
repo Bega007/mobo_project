@@ -18,6 +18,7 @@ extension Endpoints on Never {
   static const hostUserProfile = '/api/v1/user-profile/';
   static const validateEmail = '/api/v1/validate_email';
   static const signUp = '/api/v1/register/';
+  static const editProfiles = '/api/v1/profiles';
   static const login = '/api/v1/auth/';
   static const getAllProducts = '/api/products';
 }
@@ -91,12 +92,39 @@ class ApiClient {
           .toList(growable: false),
     );
   }
-  Future<List<Profile>> getProfile() async {
+  Future<Profile> getProfile() async {
     return _httpClient.get(
       Endpoints.hostUserProfile,
-      mapper: (dynamic data) => (data as List<dynamic>)
-          .map((dynamic e) => Profile.fromJson(e as Map<String, dynamic>))
-          .toList(growable: false),
+      mapper: (dynamic data) => Profile.fromJson(data as Map<String, dynamic>),
+    );
+  }
+  Future<Profile> editProfiles({
+    required int? id,
+    required String? user,
+    required String? firstName,
+    required String? lastName,
+    required String? email,
+    required String? phoneNumber,
+    required String? image,
+    required String? gender,
+    required String? dateOfBirth,
+  }) async {
+    final postData = <String, dynamic>{
+      'id': id,
+      'user': user,
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email,
+      'phoneNumber': phoneNumber,
+      'image': image,
+      'gender': gender,
+      'dateOfBirth': dateOfBirth,
+    };
+    return _httpClient.post(
+      Endpoints.editProfiles,
+      body: postData,
+      mapper: (dynamic data) =>
+          Profile.fromJson(data as Map<String, dynamic>),
     );
   }
 }

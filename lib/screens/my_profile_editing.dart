@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -52,8 +54,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const MyCircularImage(
-                      image: MyImages.avatar,
+                    MyCircularImage(
+                      image: '',
                       width: 80,
                       height: 80,
                     ),
@@ -83,8 +85,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                     ),
                   );
                 },
-                title: 'Name',
-                value: 'Plany Planyyev',
+                title: 'Name & Surname',
+                value: '${Profile.fromJson().firstName}' '${Profile.fromJson().lastName}',
               ),
               MyProfileMenu(
                 onPressed: () {
@@ -96,7 +98,7 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'Username',
-                value: 'Plany Planyyev',
+                value: '${Profile.fromJson(json as Map<String, dynamic>).user}',
               ),
 
               const SizedBox(height: MySizes.spaceBtwItems / 2),
@@ -112,8 +114,9 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                 onPressed: () {},
                 icon: Iconsax.copy,
                 title: 'User Id',
-                value: '1234',
+                value: '${Profile.fromJson(json).id}',
               ),
+              
               MyProfileMenu(
                 onPressed: () {
                   Navigator.push<Widget>(
@@ -124,7 +127,7 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'E-mail',
-                value: 'support@gmail.com',
+                value: '${Profile.fromJson(json).email}',
               ),
               MyProfileMenu(
                 onPressed: () {
@@ -136,7 +139,7 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'Phone Number',
-                value: '+993-63-462299',
+                value: '${Profile.fromJson(json).phoneNumber}',
               ),
               MyProfileMenu(
                 onPressed: () => showCupertinoModalPopup<Widget>(
@@ -144,8 +147,9 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   builder: (context) {
                     return Container(
                       height: MediaQuery.of(context).size.height * 0.3,
-                      color:
-                          MyHelperFunctions.isDarkMode(context) ? MyColors.black : MyColors.white,
+                      color: MyHelperFunctions.isDarkMode(context)
+                          ? MyColors.black
+                          : MyColors.white,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -176,7 +180,7 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   },
                 ),
                 title: 'Gender',
-                value: items[index],
+                value: Profile.fromJson(json).gender ?? 'select',
               ),
               MyProfileMenu(
                 onPressed: () => showCupertinoModalPopup<Widget>(
@@ -184,8 +188,9 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   builder: (context) {
                     return Container(
                       height: MediaQuery.of(context).size.height * 0.4,
-                      color:
-                          MyHelperFunctions.isDarkMode(context) ? MyColors.black : MyColors.white,
+                      color: MyHelperFunctions.isDarkMode(context)
+                          ? MyColors.black
+                          : MyColors.white,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
