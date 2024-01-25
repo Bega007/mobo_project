@@ -20,7 +20,7 @@ class MyMarketCard extends ConsumerWidget {
   final void Function()? onTap;
   final String? title;
   final String? image;
-  final index = 0;
+  final String? description;
   //final CompanyDetail companyDetail;
 
   const MyMarketCard({
@@ -28,6 +28,7 @@ class MyMarketCard extends ConsumerWidget {
     required this.title,
     super.key,
     required this.showBorder,
+    this.description,
     this.onTap,
     //required this.companyDetail
   });
@@ -55,7 +56,7 @@ class MyMarketCard extends ConsumerWidget {
                   errorBuilder: (context, error, stackTrace)=> const Icon(Iconsax.shop),
                 ),*/
                       MyCircularImage(
-                    image: data[index].image ?? '',
+                    image: image ?? '',
                     //image!,
                     
                     //'',
@@ -71,12 +72,12 @@ class MyMarketCard extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MyMarketTitleWithVerifyIcon(
-                    title: title!,
+                    title: title ?? '',
                     //'',,
                     marketTextSize: TextSizes.large,
                   ),
                   Text(
-                    data[index].description ?? '',
+                    description ?? '',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),

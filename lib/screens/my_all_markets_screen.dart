@@ -22,11 +22,9 @@ class MyAllMarketsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final companyDetail = ref.watch(getCompanyProvider);
-    final index = 0;
 
     return companyDetail.when(
       data: (data) {
-        log(data[index].image.toString());
         return Scaffold(
           appBar: const MyAppBar(
             showBackArrow: false,
@@ -50,6 +48,7 @@ class MyAllMarketsScreen extends ConsumerWidget {
                       return MyMarketCard(
                         title: data[index].title ?? '',
                         image: data[index].image ?? '',
+                        description: data[index].description,
                         showBorder: true,
                         onTap: () {
                           Navigator.push<Widget>(

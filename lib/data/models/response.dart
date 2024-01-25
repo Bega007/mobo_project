@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'response.g.dart';
 
+part 'response.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
@@ -12,8 +12,7 @@ class LoginResponse {
     required this.token,
   });
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 }
 
 @JsonSerializable()
@@ -28,16 +27,18 @@ class UserRegistrationResponse {
   bool? isCompany;
   String? created;
 
-  UserRegistrationResponse(
-      {this.id,
-      this.firstName,
-      this.lastName,
-      this.username,
-      this.password,
-      this.email,
-      this.isAdmin,
-      this.isCompany,
-      this.created});
-      factory UserRegistrationResponse.fromJson(Map<String, dynamic> json) =>
+  UserRegistrationResponse({
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.username,
+    this.password,
+    this.email,
+    this.isAdmin,
+    this.isCompany,
+    this.created,
+  });
+
+  factory UserRegistrationResponse.fromJson(Map<String, dynamic> json) =>
       _$UserRegistrationResponseFromJson(json);
 }

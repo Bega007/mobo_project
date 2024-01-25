@@ -61,7 +61,7 @@ class MyProductCardVertical extends ConsumerWidget {
                         //Thumbnail Image
                         Center(
                           child: MyRoundedImage(
-                            imageUrl: data[index].images.toString(),
+                            imageUrl: data[index].images?[index] ?? '',
                             applyImageRadius: true,
                             isNetworkImage: true,
                           ),
