@@ -2,6 +2,7 @@ import 'json_http_client.dart';
 import 'models/category.dart';
 import 'models/company_detail.dart';
 import 'models/products.dart';
+import 'models/profile.dart';
 import 'models/response.dart';
 
 extension Endpoints on Never {
@@ -87,6 +88,14 @@ class ApiClient {
       Endpoints.hostCompanyList,
       mapper: (dynamic data) => (data as List<dynamic>)
           .map((dynamic e) => CompanyDetail.fromJson(e as Map<String, dynamic>))
+          .toList(growable: false),
+    );
+  }
+  Future<List<Profile>> getProfile() async {
+    return _httpClient.get(
+      Endpoints.hostUserProfile,
+      mapper: (dynamic data) => (data as List<dynamic>)
+          .map((dynamic e) => Profile.fromJson(e as Map<String, dynamic>))
           .toList(growable: false),
     );
   }

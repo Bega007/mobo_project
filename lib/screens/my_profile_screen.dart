@@ -29,8 +29,10 @@ class MyProfileScreen extends StatelessWidget {
                   MyAppBar(
                     title: Text(
                       'Account',
-                      style:
-                          Theme.of(context).textTheme.headlineMedium!.apply(color: MyColors.white),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .apply(color: MyColors.white),
                     ),
                   ),
                   // The User Profile Card

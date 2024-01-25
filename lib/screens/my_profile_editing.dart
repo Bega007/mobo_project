@@ -6,6 +6,7 @@ import '../components/my_appbar.dart';
 import '../components/my_circular_image.dart';
 import '../components/my_profile_menu.dart';
 import '../components/my_section_heading.dart';
+import '../data/models/profile.dart';
 import '../utils/constants/my_colors.dart';
 import '../utils/constants/my_image_string.dart';
 import '../utils/constants/my_sizes.dart';
@@ -16,7 +17,8 @@ import 'change_profiles/my_change_phone_number.dart';
 import 'change_profiles/my_change_username.dart';
 
 class MyProfileEditingScreen extends StatefulWidget {
-  const MyProfileEditingScreen({super.key});
+  const MyProfileEditingScreen({super.key, required this.profile});
+  final Profile profile;
 
   @override
   State<MyProfileEditingScreen> createState() => _MyProfileEditingScreenState();
