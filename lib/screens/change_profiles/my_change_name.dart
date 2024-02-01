@@ -1,23 +1,21 @@
-import 'dart:developer';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+/*import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../components/my_appbar.dart';
-import '../../data/models/profile.dart';
-import '../../my_providers.dart';
 import '../../utils/constants/my_sizes.dart';
 
 class MyChangeName extends StatefulWidget {
   const MyChangeName({super.key})
   
-  @override
+   @override
   State<MyChangeName> createState() => _MyChangeNameState();
 }
 
+
 class _MyChangeNameState extends State<MyChangeName> {
-  GlobalKey<State<StatefulWidget>> formKey = GlobalKey();
+  
+ /* GlobalKey<State<StatefulWidget>> formKey = GlobalKey();
 
   final editfirstnameCotroller = TextEditingController();
 
@@ -35,7 +33,7 @@ class _MyChangeNameState extends State<MyChangeName> {
     } catch (e) {
       log(e.toString());
     }
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,11 +60,11 @@ class _MyChangeNameState extends State<MyChangeName> {
 
             // text fieald and Button
             Form(
-              key: GlobalKey(),
+             // key: GlobalKey(),
               child: Column(
                 children: [
                   TextFormField(
-                    controller: editfirstnameCotroller,
+                    //controller: editfirstnameCotroller,
                     expands: false,
                     decoration: const InputDecoration(
                       labelText: 'first name',
@@ -75,7 +73,7 @@ class _MyChangeNameState extends State<MyChangeName> {
                   ),
                   const SizedBox(height: MySizes.spaceBtwInputFields),
                   TextFormField(
-                    controller: editlastnameCotroller,
+                    //controller: editlastnameCotroller,
                     expands: false,
                     decoration: const InputDecoration(
                       labelText: 'last name',
@@ -100,4 +98,4 @@ class _MyChangeNameState extends State<MyChangeName> {
       ),
     );
   }
-}
+}*/

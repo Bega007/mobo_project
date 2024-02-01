@@ -78,15 +78,16 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
 
               MyProfileMenu(
                 onPressed: () {
-                  Navigator.push<Widget>(
+                 /* Navigator.push<Widget>(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const MyChangeName(),
                     ),
-                  );
+                  );*/
                 },
                 title: 'Name & Surname',
-                value: '${Profile.fromJson().firstName}' '${Profile.fromJson().lastName}',
+                value: '',
+                //'${Profile.fromJson().firstName}' '${Profile.fromJson().lastName}',
               ),
               MyProfileMenu(
                 onPressed: () {
@@ -98,7 +99,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'Username',
-                value: '${Profile.fromJson(json as Map<String, dynamic>).user}',
+                value: '',
+                //'${Profile.fromJson(json as Map<String, dynamic>).user}',
               ),
 
               const SizedBox(height: MySizes.spaceBtwItems / 2),
@@ -114,7 +116,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                 onPressed: () {},
                 icon: Iconsax.copy,
                 title: 'User Id',
-                value: '${Profile.fromJson(json).id}',
+                value: '',
+                //'${Profile.fromJson().id}',
               ),
               
               MyProfileMenu(
@@ -127,7 +130,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'E-mail',
-                value: '${Profile.fromJson(json).email}',
+                value: '',
+                //'${Profile.fromJson().email}',
               ),
               MyProfileMenu(
                 onPressed: () {
@@ -139,7 +143,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   );
                 },
                 title: 'Phone Number',
-                value: '${Profile.fromJson(json).phoneNumber}',
+                value: '',
+                //'${Profile.fromJson().phoneNumber}',
               ),
               MyProfileMenu(
                 onPressed: () => showCupertinoModalPopup<Widget>(
@@ -180,7 +185,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   },
                 ),
                 title: 'Gender',
-                value: Profile.fromJson(json).gender ?? 'select',
+                value: '',
+                //Profile.fromJson().gender ?? 'select',
               ),
               MyProfileMenu(
                 onPressed: () => showCupertinoModalPopup<Widget>(
@@ -214,7 +220,8 @@ class _MyProfileEditingScreenState extends State<MyProfileEditingScreen> {
                   },
                 ),
                 title: 'Date of Birth',
-                value: '${dateTime.day}-${dateTime.month}-${dateTime.year}',
+                value: '',
+                //'${dateTime.day}-${dateTime.month}-${dateTime.year}',
               ),
 
               const Divider(),
